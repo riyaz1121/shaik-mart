@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shaik-mart
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shaik-mart
+  template:
+    metadata:
+      labels:
+        app: shaik-mart
+    spec:
+      containers:
+        - name: shaik-mart
+          image: shaik373/shaik-mart:1.0
+          ports:
+            - containerPort: 8080
