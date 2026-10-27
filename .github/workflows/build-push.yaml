@@ -37,4 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: shaik373/shaik-mart:1.0
+          tags: shaik373/shaik-mart:${{ github.sha }}
