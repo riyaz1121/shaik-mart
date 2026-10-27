@@ -1,0 +1,20 @@
+name: Deploy Shaik Mart to Kubernetes
+
+on:
+  workflow_run:
+    workflows: ["Build and Push Shaik Mart"]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: self-hosted
+    steps:
+      - name: Deploy new image
+        run: |
+          IMAGE_TAG="${{ github.event.workflow_run.head_sha }}"
+          kubectl set image deployment/shaik-mart shaik-mart=shaik373/shaik-mart:${IMAGE_TAG}
+          kubectl rollout status deployment/shaik-mart --timeout=180s
