@@ -161,7 +161,7 @@
                 document.getElementById('products').textContent =
                     'Products could not be loaded. Please refresh the page.';
             });
-    </script>
+
 function updateCart() {
     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -204,5 +204,6 @@ function clearCart() {
     cart = [];
     updateCart();
 }
+</script>
 </body>
 </html>
