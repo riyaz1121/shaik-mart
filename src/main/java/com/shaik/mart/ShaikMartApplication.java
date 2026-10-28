@@ -1,3 +1,4 @@
+
 package com.shaik.mart;
 
 import org.springframework.boot.SpringApplication;
@@ -16,17 +17,6 @@ public class ShaikMartApplication {
         SpringApplication.run(ShaikMartApplication.class, args);
     }
 
-    @GetMapping("/")
-    public Map<String, Object> home() {
-        return Map.of(
-            "store", "Shaik Mart",
-            "message", "Welcome to Shaik Mart!",
-            "description", "Your personalized online shopping store",
-            "products", "/api/products",
-            "health", "/health"
-        );
-    }
-
     @GetMapping("/api/products")
     public List<Map<String, Object>> products() {
         return List.of(
@@ -42,3 +32,4 @@ public class ShaikMartApplication {
         return Map.of("status", "UP", "application", "Shaik Mart");
     }
 }
+
